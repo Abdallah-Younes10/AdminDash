@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+body{
+   @apply bg-zinc-100 text-gray-900;
+}
+
+.dark body{
+    @apply bg-gray-900 text-white;
+
+}
+
+:root {
+  --chart-label: #111827;
+  --chart-brand: #04ddcf;
+  --chart-secondary: #001fcf;
+  --chart-grid: #65686b;
+
+}
+
+.dark {
+  --chart-label: #ffffff;
+  --chart-brand: #04ddcf;
+  --chart-secondary: #c62100;
+  --chart-grid: #374151;
+}
