@@ -55,7 +55,7 @@ export const DataTable = ({
       // Guard: If query hasn't changed, do NOT reset page
       if (q === (params.q || "")) return;
 
-      console.log("DataTable handleSearch called, resetting page to 1", q);
+      // console.log("DataTable handleSearch called, resetting page to 1", q);
       onParamsChange((prev) => ({ ...prev, q }));
       setCurrentPage(1);
     },

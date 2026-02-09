@@ -14,6 +14,29 @@ export const fetchUsers = async (params = {}) => {
   let path = "/users";
   if (params.q) {
     path = "/users/search";
+
+    // Check if we need to apply client-side filtering (API limitation)
+    const hasFilter = params.filterKey && params.filterValue;
+
+    const url = buildUrl(path, { limit: 200, ...params });
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("Failed to fetch users");
+    const data = await res.json();
+
+    if (hasFilter) {
+      const filteredUsers = data.users.filter(
+        (user) =>
+          String(user[params.filterKey]).toLowerCase() ===
+          String(params.filterValue).toLowerCase(),
+      );
+      return {
+        ...data,
+        users: filteredUsers,
+        total: filteredUsers.length,
+      };
+    }
+
+    return data;
   } else if (params.filterKey && params.filterValue) {
     path = `/users/filter`;
     // For Users filter, DummyJSON uses ?key=field&value=val

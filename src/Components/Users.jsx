@@ -181,13 +181,19 @@ export const Users = () => {
     },
   ];
 
-  const handleParamsChange = (newParams) => {
-    const updatedParams = { ...newParams };
-    if (updatedParams.filterValue && !updatedParams.filterKey) {
-      updatedParams.filterKey = "role";
-    }
-    setParams(updatedParams);
-  };
+  const handleParamsChange = React.useCallback((newParamsOrFn) => {
+    setParams((prev) => {
+      const newParams =
+        typeof newParamsOrFn === "function"
+          ? newParamsOrFn(prev)
+          : newParamsOrFn;
+      const updatedParams = { ...newParams };
+      if (updatedParams.filterValue && !updatedParams.filterKey) {
+        updatedParams.filterKey = "role";
+      }
+      return updatedParams;
+    });
+  }, []);
 
   const renderExpanded = (user, context = {}) => {
     const { isEditing, editedValues, onChange } = context;

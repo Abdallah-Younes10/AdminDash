@@ -125,7 +125,7 @@ export const TransTable = ({
                       </tr>
                     ))
                   ) : transactions.length > 0 ? (
-                    transactions.map((t) => (
+                    transactions.slice(0, 10).map((t) => (
                       <tr
                         key={t.id}
                         className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"

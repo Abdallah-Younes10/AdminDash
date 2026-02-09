@@ -87,7 +87,7 @@ export const TableToolbar = ({
             <div className="relative" ref={filterRef}>
               <button
                 onClick={() => setIsFilterOpen(!isFilterOpen)}
-                className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border transition-all duration-200 shadow-sm ${
+                className={`flex items-center  gap-2 px-4 py-2 text-sm font-medium rounded-lg border transition-all duration-200 shadow-sm ${
                   hasActiveFilters
                     ? "bg-blue-50 text-blue-600 border-blue-200 dark:bg-blue-900/20 dark:text-blue-400 dark:border-blue-800"
                     : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-600"
@@ -102,7 +102,7 @@ export const TableToolbar = ({
               </button>
 
               {isFilterOpen && (
-                <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 z-50 py-2 animate-in fade-in zoom-in duration-200">
+                <div className="absolute left-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 z-50 py-2 animate-in fade-in zoom-in duration-200">
                   {filterOptions.map((filter) => (
                     <div key={filter.key} className="px-4 py-2">
                       <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">

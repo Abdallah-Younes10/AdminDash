@@ -134,7 +134,7 @@ export const Navbar = () => {
             </button>
 
             {openNotif && (
-              <div className="absolute right-0 top-12 w-80 bg-white dark:bg-gray-700 rounded-lg shadow-lg z-50">
+              <div className="absolute left-0 top-12 w-80 bg-white dark:bg-gray-700 rounded-lg shadow-lg z-50">
                 <div className="p-3 text-center font-semibold border-b dark:border-gray-600">
                   Notifications
                 </div>
