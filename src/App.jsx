@@ -1,5 +1,6 @@
 import { Children, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Layout } from "./Components/Layout/Layout";
 import { Home } from "./Components/Home/Home";
 import { Users } from "./Components/Users";
@@ -47,6 +48,7 @@ function App() {
   return (
     <>
       <RouterProvider router={routes} />
+      <SpeedInsights />
     </>
   );
 }
